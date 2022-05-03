@@ -1,0 +1,129 @@
+---
+title: "Classification Metrics"
+author: "Matthew Edwards"
+date: "03/05/2022"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Metrics
+
+1. Confusion Matrix
+2. Accuracy
+3. Precision
+4. Recall
+5. F1-Score
+
+## 1. Confusion Matrix
+
+**Confusion matrix**, $C$ is such that $C_{ij}$ is equal to the number observations known to be in group 
+$i$ and predicted to be in group $j$
+
+In binary classification: 
+
+  - $C_{0,0}$ is the count of true negatives (**TN**)
+  - $C_{0,1}$ is the count of false positives (**FP**)
+  - $C_{1,0}$ is the count of false negatives (**FN**)
+  - $C_{1,1}$ is the count of true positives (**TP**)
+
+## 1. Confusion Matrix
+
+![](figures/conf_matrix_bw.png){width=100%}
+
+## 1. Confusion Matrix
+
+Consider a `model` and `data` with attributes `target` and `features`. The true targets and predicted targets are computed as:
+
+```
+y_true = data.target
+y_pred = model(data.features)
+```
+
+In python a **confusion matrix** is computed as:
+
+```
+from sklearn.metrics import confusion_matrix
+
+(tn, fp), (fn, tp) = confusion_matrix(y_true, y_pred)
+```
+
+## 2. Accuracy
+
+**Accuracy** is the number of correctly predicted examples divided by the total number of examples.
+
+It can be expressed as the sum of the diagonal elements of a confusion matrix, divided by the sum of all the elements of a confusion matrix:
+
+$$(TP + TN) \over (TP + FP + TN + FN)$$
+
+## 2. Accuracy
+
+![](figures/accuracy_bw.png){width=100%}
+
+## 2. Accuracy
+
+In python **accuracy** is computed as:
+
+```
+from sklearn.metrics import accuracy_score
+
+(tp + tn) / (tp + fp + tn + fn), accuracy_score(y_true, y_pred)
+```
+
+## 3. Precision
+
+**Precision** is the percentage of **positive predictions** (i.e. examples predicted as positive) that are positive examples.
+
+$$\operatorname{Precision} = \frac{TP}{TP + FP}$$
+
+## 3. Precision
+
+![](figures/precision_bw.png){width=100%}
+
+## 3. Precision
+
+In python **precision** is computed as:
+
+```
+from sklearn.metrics import precision_score
+
+tp / (tp + fp), precision_score(y_true, y_pred)
+```
+
+## 4. Recall
+
+**Recall** the percentage of **positive examples** (i.e. examples that are positive) that are positive predictions.
+
+$$\operatorname{Recall} = \frac{TP}{TP + FN}$$
+
+## 4. Recall
+
+![](figures/recall_bw.png){width=100%}
+
+## 4. Recall
+
+In python **recall** is computed as:
+
+```
+from sklearn.metrics import recall_score
+
+tp / (tp + fn), recall_score(y_true, y_pred)
+```
+
+## 5. F1 Score
+
+**F1 Score** is the harmonic mean of the precision and recall
+
+$$\operatorname{f1} = 2 \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$$
+
+## 5. F1 Score
+
+In python **f1** is computed as:
+
+```
+from sklearn.metrics import f1_score
+
+f1_score(y_true, y_pred)
+```
