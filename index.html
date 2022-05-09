@@ -113,7 +113,91 @@ slide:not(.current) .plotly.html-widget{
           </hgroup>
   </slide>
 
-<slide class=""><hgroup><h2>Metrics</h2></hgroup><article  id="metrics">
+<slide class=""><hgroup><h2>Introduction</h2></hgroup><article  id="introduction">
+
+<p>For binary classification there are <strong>three</strong> different types of metrics:</p>
+
+<ol>
+<li>Threshold</li>
+<li>Ranking</li>
+<li>Probability</li>
+</ol>
+
+<p>These different types of metrics have different properties that may or may not be important for a particular application.</p>
+
+</article></slide><slide class=""><hgroup><h2>Threshold Metrics</h2></hgroup><article  id="threshold-metrics">
+
+<p>A machine learning model generates a score during prediction:</p>
+
+<ol>
+<li>The prediction is the positive class if the score greater than threshold.</li>
+<li>The prediction is the negative class if the score less than threshold.</li>
+</ol>
+
+<p>The default threshold is 0.5.</p>
+
+</article></slide><slide class=""><hgroup><h2>Threshold Metrics</h2></hgroup><article  id="threshold-metrics-1">
+
+<p>Since the scores have been converted into class predictions a confusion matrix is available from which threshold metrics can be calculated:</p>
+
+<ul>
+<li>Accuracy</li>
+<li>Precision</li>
+<li>Recall</li>
+<li>F1-Score</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Ranking Metrics</h2></hgroup><article  id="ranking-metrics">
+
+<p>Threshold metrics involved converting scores to class predictions with a threshold. This is not always desirable because different threshold result in different type one and type two errors. Hence, evaluating the model is only evaluating the model for a particular threshold. <strong>What happens if you change the threshold?</strong></p>
+
+</article></slide><slide class=""><hgroup><h2>Ranking Metrics</h2></hgroup><article  id="ranking-metrics-1">
+
+<p>Ranking Metrics are metrics that are threshold independent. There are two types of threshold independent metrics.</p>
+
+<ol>
+<li>Ranking metrics only consider the ranking of the scores.</li>
+<li>Probability metrics consider the ranking and size of the score.</li>
+</ol>
+
+</article></slide><slide class=""><hgroup><h2>Ranking Metrics</h2></hgroup><article  id="ranking-metrics-2">
+
+<p>The two most popular ranking metrics are:</p>
+
+<ul>
+<li>AUC ROC</li>
+<li>AUC PR</li>
+</ul>
+
+<p>Since, these are ranking metrics they do not change if you scale the scores up or down as long as the order of the scores are the same.</p>
+
+</article></slide><slide class=""><hgroup><h2>Ranking Metrics</h2></hgroup><article  id="ranking-metrics-3">
+
+<p>Ranking metrics are particularly useful when you are only interested in the top \(n\) scores. This is because the top \(n\) scores only depen on the rank of the scores not the scale. If the scale is not important they metric does not need to depend on it.</p>
+
+</article></slide><slide class=""><hgroup><h2>Probablity Metrics</h2></hgroup><article  id="probablity-metrics">
+
+<p>Probability metrics consider the ranking and size of the score.</p>
+
+<ul>
+<li>Probability metrics are good when the scores are calibrated.</li>
+<li>Probability metrics are bad when the scores are not calibrated.</li>
+</ul>
+
+<p>A score is calibrated if it is between zero and one and represents a relative frequency. The scores provided in weather forecasts are calibrated. For example, on all the days the weather forecast said that there was a 10% probability of rain, rain was recoded on 10% of those days.</p>
+
+</article></slide><slide class=""><hgroup><h2>Probability Metrics</h2></hgroup><article  id="probability-metrics">
+
+<p>The two most popular probability metrics are:</p>
+
+<ul>
+<li>Brier Score</li>
+<li>Brier Skill Score</li>
+</ul>
+
+<p>A Brier Skill Score is a Brier Score scaled between zero and one. Zero represents random prediction and one represents perfect prediction.</p>
+
+</article></slide><slide class=""><hgroup><h2>Metrics</h2></hgroup><article  id="metrics">
 
 <ol>
 <li>Confusion Matrix</li>
