@@ -40,6 +40,7 @@ Since the scores have been converted into class predictions a confusion matrix i
 ## Ranking Metrics
 
 Threshold metrics involved converting scores to class predictions with a threshold. This is not always desirable because different threshold result in different type one and type two errors. Hence, evaluating the model is only evaluating the model for a particular threshold. 
+
 **What happens if you change the threshold?**
 
 ## Ranking Metrics
@@ -60,7 +61,7 @@ Since, these are ranking metrics they do not change if you scale the scores up o
 
 ## Ranking Metrics
 
-Ranking metrics are particularly useful when you are only interested in the top $n$ scores. This is because the top $n$ scores only depen on the rank of the scores not the scale. If the scale is not important they metric does not need to depend on it. 
+Ranking metrics are particularly useful when you are only interested in the top $n$ scores. This is because the top $n$ scores only depend on the rank of the scores not the scale. If the scale is not important they metric does not need to depend on it. 
 
 ## Probablity Metrics
 
